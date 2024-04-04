@@ -1,264 +1,293 @@
-html, body {
-    height: 100%;
-    margin: 0;
+html,
+body {
+  height: 100%;
+  margin: 0;
+  letter-spacing: 2px;
 }
 
+:root {
+  --text: #0a0919;
+  --background: #f9f9fd;
+  --primary: #a5a3cd;
+  --secondary: #8782e3;
+  --accent: #5e57e1;
+  --linearPrimarySecondary: linear-gradient(#a5a3cd, #8782e3);
+  --linearPrimaryAccent: linear-gradient(#a5a3cd, #5e57e1);
+  --linearSecondaryAccent: linear-gradient(#8782e3, #5e57e1);
+  --linearSecondaryBackground : linear-gradient(.40turn,#f9f9fd,90%,#8782e3);
+  --radialPrimarySecondary: radial-gradient(#a5a3cd, #8782e3);
+  --radialPrimaryAccent: radial-gradient(#a5a3cd, #5e57e1);
+  --radialSecondaryAccent: radial-gradient(#8782e3, #5e57e1);
+}
+
+button {
+  font: inherit;
+}
 #container {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    width: 100%;
-    height: 100%;
-    font-family: 'Verdana',sans-serif
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  width: 100%;
+  height: 100%;
+  font-family: "Verdana", sans-serif;
 }
 
 #left {
-    background-color: aqua;
+  background-color: var(--background);
+  padding: 20px; /* Add padding for spacing */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 5px 0 5px 4px rgba(0,0,0,1);
 }
 
 #right {
-    background-color: brown;
-    display: grid;
-    grid-template-rows: 1fr 8fr;
+  background-color: rgb(80, 67, 67);
+  display: grid;
+  grid-template-rows: 1fr 8fr;
 }
 
-#header{
-    background-color: rgb(143, 109, 109);
+#header {
+  background-color: var(--secondary);
 }
 
-#content{
-    padding: 2%;
+#content {
+  padding: 2%;
+  background: var(--linearSecondaryBackground);
 }
 
 #task_form {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 #task_form section {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 #task_form input[type="text"],
 #task_form input[type="date"] {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 #task_form input[type="text"] {
-    width: calc(100% - 10px);
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+  width: calc(100% - 10px);
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 #notes {
-    width: 100%;
-    height: 100px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    vertical-align: top;
-    line-height: normal;
+  width: 100%;
+  height: 100px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  vertical-align: top;
+  line-height: normal;
 }
 
 #task_form input[type="radio"] {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 #task_form label {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 #task_form button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  background-color: var(--accent);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 #cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .task_card {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: calc(33.33% - 20px);
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-left: var(--accent) 10px solid;
+  width: calc(33.33% - 20px);
 }
 
 .task_card p {
-    margin: 0;
+  margin: 0;
 }
 
 #task_submit {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    float: right;
+  background-color: var(--accent);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  float: right;
 }
 
 #task_submit svg {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
+  fill: var(--background);
 }
 
 #task_submit:hover {
-    background-color: #45a049;
+  background: var(--radialSecondaryAccent) ;
 }
 
 #task_form input[type="radio"] {
-    display: none;
+  display: none;
 }
 
 #task_form input[type="radio"] + label {
-    display: inline-block;
-    cursor: pointer;
-    padding: 8px 12px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    color: #555;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  display: inline-block;
+  cursor: pointer;
+  padding: 8px 12px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #555;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 #task_form input[type="radio"]:checked + label {
-    background-color: #4CAF50;
-    color: #fff;
-    border-color: #4CAF50;
+  background-color: #4caf50;
+  color: #fff;
+  border-color: #4caf50;
 }
 
 #prio_date {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 #priority {
-    margin-left: 20px;
-    display: flex;
+  margin-left: 20px;
+  display: flex;
 }
 
 /* header */
 #header {
-    background-color: rgb(143, 109, 109);
-    display: flex;
-    align-items: center;
-    height: 100px; 
+  background-color: var(--secondary);
+  display: flex;
+  align-items: center;
+  height: 100px;
 }
 
 #project_header {
-    font-size: 2.2em;
-    font-weight: 600;
-    padding: 2%;
-    display: flex;
-    align-items: center;
+  font-size: 2.2em;
+  font-weight: 600;
+  padding: 2%;
+  display: flex;
+  align-items: center;
 }
 
 /* left side */
-#left {
-    background-color: aqua;
-    padding: 20px; /* Add padding for spacing */
-}
 
 #left p {
-    font-size: 1.5em; /* Adjust font size */
-    font-weight: bold; /* Add bold font weight */
+  font-size: 2.4em; /* Adjust font size */
+  font-weight: bold; /* Add bold font weight */
+  color: var(--background);
 }
 
 #project_form {
-    margin-bottom: 20px; /* Add margin for spacing */
-    display: flex;
-    align-items: center;
-    gap:10px;
-    padding:4px;
+  margin-bottom: 20px; /* Add margin for spacing */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px;
 }
 
 #project_title {
-    padding: 10px;
-    width: 200px; /* Adjust the width as needed */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    /* margin-bottom: 10px; */
-    box-sizing: border-box; /* Ensure padding and border are included in width */
+  padding: 10px;
+  width: 200px; /* Adjust the width as needed */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  /* margin-bottom: 10px; */
+  box-sizing: border-box; /* Ensure padding and border are included in width */
 }
 
 #projects {
-    overflow-y: auto; /* Add scrollbar if content overflows vertically */
-    max-height: 70vh; /* Limit the maximum height of the project list */
+  overflow-y: auto; /* Add scrollbar if content overflows vertically */
+  max-height: 70vh; /* Limit the maximum height of the project list */
 }
 
 #project_list {
-    padding: 10px; /* Add padding for spacing */
-    border-radius: 4px; /* Add border radius for rounded corners */
-    display: flex;
-    flex-direction: column;
+  padding: 10px; /* Add padding for spacing */
+  border-radius: 4px; /* Add border radius for rounded corners */
+  display: flex;
+  flex-direction: column;
 }
 
 .project-card {
-    background-color: #f0f0f0; /* Background color for project cards */
-    padding: 10px 20px; /* Padding for project cards */
-    border: none; /* Remove default button border */
-    border-radius: 4px; /* Add border radius for rounded corners */
-    cursor: pointer; /* Change cursor to pointer on hover */
-    margin-bottom: 10px; /* Add margin between project cards */
+  background-color: var(--secondary); /* Background color for project cards */
+  padding: 10px 20px; /* Padding for project cards */
+  border: none; /* Remove default button border */
+  border-radius: 10px; /* Add border radius for rounded corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  margin-bottom: 10px; /* Add margin between project cards */
 }
 
-
-
 .project-card:hover {
-    background-color: #e0e0e0; /* Change background color on hover */
+  background: var(--radialSecondaryAccent); /* Change background color on hover */
 }
 
 .remove-button {
-    background-color: #ff6464; /* Background color for remove button */
-    color: #fff; /* Text color for remove button */
-    border: none; /* Remove default button border */
-    padding: 5px 10px; /* Padding for remove button */
-    border-radius: 4px; /* Add border radius for rounded corners */
-    cursor: pointer; /* Change cursor to pointer on hover */
+  background-color: var(--accent); /* Background color for remove button */
+  color: #fff; /* Text color for remove button */
+  border: none; /* Remove default button border */
+  padding: 10px 14px;
+  font-weight: 600; /* Padding for remove button */
+  border-radius: 4px; /* Add border radius for rounded corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
 }
 
 .remove-button:hover {
-    background-color: #ff4444; /* Change background color on hover */
+  background-color: #ff4444; /* Change background color on hover */
 }
 
 #add_project_btn svg {
-    width: 20px;
-    height: 20px;
-    fill: white;
+  width: 20px;
+  height: 20px;
+  fill: white;
 }
 #add_project_btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    cursor: pointer;
-    /* float: right; */
+  background-color: var(--accent);
+  color: white;
+  padding: 10px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  /* float: right; */
 }
 #add_project_btn:hover {
-    background-color: #45a049;
+  background: var(--linearSecondaryAccent);
 }
 
 #project_card_div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1em;
+}
+#project_card_div p {
+  font-size: 1.4em;
+  font-weight: 400;
 }

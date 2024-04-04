@@ -8,10 +8,9 @@ export function createTask(title,desc,dueDate,priority){
     };
 }
 
-export function createProject(title,desc){
+export function createProject(title){
     return{
         title:title,
-        desc:desc,
         taskList: []
     }
 }

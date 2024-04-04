@@ -57,6 +57,8 @@ button {
 
 #task_form {
   margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
 }
 
 #task_form section {
@@ -96,7 +98,7 @@ button {
 }
 
 #task_form label {
-  margin-right: 20px;
+  margin-right: 5px;
 }
 
 #task_form button {
@@ -106,6 +108,8 @@ button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  display: flex;
+
 }
 
 #cards {
@@ -134,6 +138,8 @@ button {
   border: none;
   border-radius: 50%;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
   float: right;
 }
 
@@ -171,12 +177,24 @@ button {
 
 #prio_date {
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#title_desc{
+  display: flex;
+  flex-direction: column;
+  gap:5px;
+}
+#priority {
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap:5px;
 }
 
-#priority {
-  margin-left: 20px;
+#due_date_div{
   display: flex;
+  justify-content: flex-start;
 }
 
 /* header */
@@ -184,7 +202,6 @@ button {
   background-color: var(--secondary);
   display: flex;
   align-items: center;
-  height: 100px;
   color: var(--background);
   /* box-shadow: inset 0px -4px 10px 0px rgba(0, 0, 0, 0.6);*/
 }

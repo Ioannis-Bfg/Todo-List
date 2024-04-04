@@ -15,7 +15,7 @@ export function loadRight(project){
     content.innerHTML='';
     content.innerHTML=`
     <form id="task_form">
-    <section>
+    <section id="title_desc">
         <input
         type="text"
         id="task_title"
@@ -24,12 +24,11 @@ export function loadRight(project){
       />
       <input type="text" id="notes" placeholder="Your Notes">
     </section>
-
-    <section>
-        
-        <section id="prio_date">
-          <label for="due_date">Due date:</label>
-          <input type="date" name="due_date" id="due_date">
+    <section id="prio_date">
+          <div id="due_date_div">
+            <label for="due_date">Due date:</label>
+            <input type="date" name="due_date" id="due_date">
+          </div>
           <div id="priority">
             <legend>Priority:</legend>
             <input type="radio" id="low" name="priority" value="low" checked>
@@ -47,9 +46,7 @@ export function loadRight(project){
                   <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
                 </svg>
           </button>
-        </section>
-        
-
+      </section>
   </form>
   <div id="cards">
 

@@ -54,16 +54,33 @@
                 <input type="radio" id="high" name="priority" value="high">
                 <label for="high">High</label>
                 
-            </section>
-            <label for="due_date">Due date:</label>
-            <input type="date" name="due_date" id="due_date">
-            <button type="submit" id="task_submit">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <title>plus</title>
-                    <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
-                  </svg>
-            </button>
+                <section id="prio_date">
+                  <label for="due_date">Due date:</label>
+                  <input type="date" name="due_date" id="due_date">
+                  <div id="priority">
+                    <legend>Priority:</legend>
+                    <input type="radio" id="low" name="priority" value="low" checked>
+                    <label for="low">Low</label>
+                    
+                    <input type="radio" id="medium" name="priority" value="medium">
+                    <label for="medium">Medium</label>
+                    
+                    <input type="radio" id="high" name="priority" value="high">
+                    <label for="high">High</label>
+                  </div>
+                  <button type="submit" id="task_submit">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                          <title>plus</title>
+                          <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                        </svg>
+                  </button>
+                </section>
+                
+
           </form>
+          <div id="cards">
+
+          </div>
         </div>
       </div>
     </div>

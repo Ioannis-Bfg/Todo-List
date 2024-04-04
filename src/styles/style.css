@@ -176,7 +176,6 @@ html, body {
 #left p {
     font-size: 1.5em; /* Adjust font size */
     font-weight: bold; /* Add bold font weight */
-    margin-bottom: 20px; /* Add margin for spacing */
 }
 
 #project_form {
@@ -215,11 +214,10 @@ html, body {
     border: none; /* Remove default button border */
     border-radius: 4px; /* Add border radius for rounded corners */
     cursor: pointer; /* Change cursor to pointer on hover */
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Align content horizontally */
-    align-items: center; /* Align items vertically */
     margin-bottom: 10px; /* Add margin between project cards */
 }
+
+
 
 .project-card:hover {
     background-color: #e0e0e0; /* Change background color on hover */
@@ -257,4 +255,10 @@ html, body {
 }
 #add_project_btn:hover {
     background-color: #45a049;
+}
+
+#project_card_div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

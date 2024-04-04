@@ -13,6 +13,7 @@ export function displayProjects(project_array, currentProject){
         let project_title_p=document.createElement('p');
         let project_title=project['title'];
         project_title_p.textContent=project_title;
+        project_title_p.id='project_title_p'
 
         let removeButton = document.createElement('button');
         removeButton.textContent = 'Remove';
@@ -24,9 +25,14 @@ export function displayProjects(project_array, currentProject){
             currentProject=projectArrayRef[0];
             loadRight(currentProject);
         });
+        
+        const card_div=document.createElement('div');
+        card_div.id='project_card_div';
 
-        card.appendChild(project_title_p);
-        card.appendChild(removeButton);
+        card_div.appendChild(project_title_p);
+        card_div.appendChild(removeButton);
+
+        card.appendChild(card_div);
         project_list.appendChild(card);
         
         card.addEventListener('click', function() {

@@ -22,7 +22,7 @@ export function loadRight(project){
         placeholder="New Task"
         required
       />
-      <input type="text" id="notes" placeholder="Your Notes">
+      <textarea id="notes" placeholder="Your Notes" rows='3'></textarea>
     </section>
     <section id="prio_date">
           <div id="due_date_div">
@@ -62,11 +62,13 @@ export function loadRight(project){
         const card = document.createElement('div');
         card.classList.add('task_card');
         const card_text = document.createElement('p');
+        card_text.id='card_text';
     
         const titlePara = document.createElement('p');
         titlePara.textContent = task.title;
     
-        const descPara = document.createElement('p');
+        const descPara = document.createElement('div');
+        descPara.classList.add('desc_para');
         descPara.textContent = task.desc;
     
         const datePara = document.createElement('p');
@@ -75,21 +77,40 @@ export function loadRight(project){
         const priorityPara = document.createElement('p');
         priorityPara.textContent = task.priority;
 
-        const check_button=document.createElement('button');
-        check_button.textContent='delete';
-        check_button.id=`${i}`;
+        const remove_button=document.createElement('button');
+        remove_button.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>delete-outline</title><path d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z" /></svg>';
+        remove_button.id=`${i}`;
+        remove_button.classList.add('remove')
 
-        check_button.addEventListener('click', function() {
+        remove_button.addEventListener('click', function() {
           const taskIndex = parseInt(this.id);
           removeTask(project, taskIndex);
           loadRight(project);
         });
     
+        const check_button=document.createElement('input');
+        check_button.setAttribute('type', 'checkbox');
+        check_button.setAttribute('id', 'checkbox');
+        check_button.setAttribute('name', 'checkbox');
+
+        check_button.addEventListener('change', function() {
+          const isChecked = this.checked;
+          const taskCard = this.parentElement.parentElement; // Get the parent task card
+      
+          if (isChecked) {
+              taskCard.classList.add('checked'); // Add the checked class
+          } else {
+              taskCard.classList.remove('checked'); // Remove the checked class
+          }
+      });
+      
+
         card_text.appendChild(check_button);
         card_text.appendChild(titlePara);
         card_text.appendChild(descPara);
         card_text.appendChild(datePara);
         card_text.appendChild(priorityPara);
+        card_text.appendChild(remove_button);
     
         card.appendChild(card_text);
         task_list.appendChild(card);

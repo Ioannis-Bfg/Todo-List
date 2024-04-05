@@ -83,11 +83,12 @@ button {
 }
 
 #notes {
-  width: 100%;
+  width: calc(100% - 10px);
   height: 100px;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  resize: none;
   box-sizing: border-box;
   vertical-align: top;
   line-height: normal;
@@ -117,6 +118,13 @@ button {
   flex-wrap: wrap;
   gap: 20px;
 }
+#card_text{
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  align-items: center;
+  gap:5px;
+}
 
 .task_card {
   background-color: #f9f9f9;
@@ -124,11 +132,30 @@ button {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-left: var(--accent) 10px solid;
-  width: calc(33.33% - 20px);
+  width: calc(100% - 20px);
 }
 
 .task_card p {
   margin: 0;
+}
+
+.remove {
+  width:35px;
+  height: auto;
+  aspect-ratio: 1/1;
+  fill: var(--accent);
+  background: none;
+  border: transparent;
+  scale:1;
+  transition: scale 0.2s ease;
+  transition: fill 0.2s ease;
+}
+
+.remove:hover{
+  scale: 1.2;
+  fill: red;
+  transition: scale 0.2s ease;
+  transition: fill 0.2s ease;
 }
 
 #task_submit {
@@ -285,8 +312,30 @@ button {
 
 .project-card:hover {
   background-color: var(--secondary); 
-  transition: background-color 0.4s ease-in;/* Change background color on hover */
+  transition: background-color 0.3s ease-in;/* Change background color on hover */
 }
+.checked {
+  background-color: var(--accent); 
+  color: whitesmoke;
+  border-left: 10px solid var(--secondary);
+  /* Change to whatever color you prefer */
+}
+
+.checked svg{
+  fill: var(--background);
+}
+.desc_para{
+  max-width: 70px;
+  max-height: 90px;
+  overflow: scroll;
+}
+#checkbox{
+  width:30px;
+  height: 30px;
+  border: 10px solid white ;
+  background-color: #eee;
+}
+/* #desc_para{} */
 
 .remove-button {
   background-color: var(--background); /* Background color for remove button */

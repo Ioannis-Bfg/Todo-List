@@ -19,12 +19,12 @@ staticLoad(); // IMPORTANT TO BE FIRST
 let project_array = [];
 
 // TESTS /////////////////////////////////////////////
-let project1 = createProject('Project1');
+let project1 = createProject('Sample project');
 project_array.push(project1);
 
- let task1=createTask('Task1','idk','2/3/4','high');
+ let task1=createTask('Create Website','It is a website about tracking tasks','2024-5-4','high');
  addTask(project1,task1);
- let task2=createTask('Task2','idk','2/3/4','high');
+ let task2=createTask('Style it','Add some nice UI','2024-5-4','high');
  addTask(project1,task2);
 let currentProject = project1;
 displayProjects(project_array,currentProject,setCurrentProject);
@@ -60,12 +60,10 @@ function handleTaskForm(e) {
 
     let new_task = createTask(title, desc, date, priority);
 
-    console.log('outside',currentProject);
     addTask(currentProject, new_task);
     loadRight(currentProject);
 
     document.getElementById('task_form').reset();
-    console.log(currentProject["taskList"]);
 }
 
 export function setCurrentProject(project) {

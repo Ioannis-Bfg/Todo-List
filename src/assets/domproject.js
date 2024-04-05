@@ -6,6 +6,17 @@ export function displayProjects(project_array, currentProject){
     projectArrayRef = project_array;
     const project_list=document.querySelector('#project_list')
     project_list.innerHTML=''
+
+    if (project_array.length === 0) {
+        // If no projects, hide the task form
+        document.getElementById('task_form').style.display = 'none';
+        const task_list = document.querySelector('#cards');
+        task_list.innerHTML = '';
+
+        return;
+        return;
+    }
+
     for(let project of project_array){
         let card=document.createElement('button');
         card.classList.add('project-card');
@@ -48,5 +59,6 @@ function removeProject(project) {
     if (index !== -1) {
         projectArrayRef.splice(index, 1);
         displayProjects(projectArrayRef);
+        console.log(projectArrayRef);
     }
 }

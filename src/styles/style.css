@@ -1,3 +1,4 @@
+/* Reset and General Styles */
 html,
 body {
   height: 100%;
@@ -5,6 +6,7 @@ body {
   letter-spacing: 2px;
 }
 
+/* Variables */
 :root {
   --text: #0a0919;
   --background: #f9f9fd;
@@ -20,9 +22,12 @@ body {
   --radialSecondaryAccent: radial-gradient(#8782e3, #5e57e1);
 }
 
+/* Typography */
 button {
   font: inherit;
 }
+
+/* Layout */
 #container {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -31,30 +36,35 @@ button {
   font-family: "Verdana", sans-serif;
 }
 
+/* Left Sidebar */
 #left {
   background-color: var(--background);
-  padding: 20px; /* Add padding for spacing */
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
   box-shadow: inset -2px 0 10px 10px rgba(157, 126, 214, 0.06);
 }
 
+/* Right Sidebar */
 #right {
   background-color: rgb(80, 67, 67);
   display: grid;
-  grid-template-rows: 1fr 8fr;
+  grid-template-rows: minmax(50px, min-content)
 }
 
+/* Header */
 #header {
   background-color: var(--secondary);
 }
 
+/* Content Area */
 #content {
   padding: 2%;
   background: var(--linearSecondaryBackground);
 }
 
+/* Task Form */
 #task_form {
   margin-bottom: 20px;
   display: grid;
@@ -65,6 +75,7 @@ button {
   margin-bottom: 10px;
 }
 
+/* Form Inputs */
 #task_form input[type="text"],
 #task_form input[type="date"] {
   width: 100%;
@@ -76,12 +87,14 @@ button {
 
 #task_form input[type="text"] {
   width: calc(100% - 10px);
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
 }
 
+#task_form textarea{
+  font-size: 1.3em;
+  font-weight: 100;
+}
+
+/* Task Form Textarea */
 #notes {
   width: calc(100% - 10px);
   height: 100px;
@@ -94,6 +107,7 @@ button {
   line-height: normal;
 }
 
+/* Task Form Radio Buttons */
 #task_form input[type="radio"] {
   margin-right: 10px;
 }
@@ -102,6 +116,7 @@ button {
   margin-right: 5px;
 }
 
+/* Task Form Button */
 #task_form button {
   background-color: var(--accent);
   color: white;
@@ -110,24 +125,31 @@ button {
   border-radius: 4px;
   cursor: pointer;
   display: flex;
-
 }
 
+/* Cards Container */
 #cards {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 }
-#card_text{
+
+/* Task Card Text */
+.card_text_container {
   display: flex;
-  /* flex-direction: column; */
   justify-content: space-between;
   align-items: center;
-  gap:5px;
+  gap: 5px;
 }
 
+/* Remove Button */
+.remove {
+  grid-column: 4/5;
+}
+
+/* Task Card */
 .task_card {
-  background-color: #f9f9f9;
+  background-color: var(--background);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -139,25 +161,64 @@ button {
   margin: 0;
 }
 
+.title_desc_div{
+  display: flex;
+  align-items: center;
+  gap:30px;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.checkbox_title_desc_div{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap:20px;
+}
+
+.due_date_priority_div{
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+}
+
+.title_desc_div div{
+  font-weight: 400;
+  color: var(--text);
+}
+
+.title_desc_div p{
+  align-self: flex-start;
+}
+
+#title_para {
+  overflow-y: visible;
+  word-wrap: break-word;
+  max-width: 8vw;
+  min-width: 8vw;
+  min-height: fit-content;
+  max-height: 2em;
+}
+
+
+/* Remove Button Styling */
 .remove {
-  width:35px;
+  width: 35px;
   height: auto;
   aspect-ratio: 1/1;
   fill: var(--accent);
   background: none;
   border: transparent;
-  scale:1;
-  transition: scale 0.2s ease;
-  transition: fill 0.2s ease;
+  scale: 1;
+  transition: scale 0.2s ease, fill 0.2s ease;
 }
 
-.remove:hover{
+.remove:hover {
   scale: 1.2;
   fill: red;
-  transition: scale 0.2s ease;
-  transition: fill 0.2s ease;
 }
 
+/* Task Submit Button */
 #task_submit {
   background-color: var(--accent);
   color: white;
@@ -177,13 +238,15 @@ button {
 }
 
 #task_submit:hover {
-  background: var(--radialSecondaryAccent) ;
+  background: var(--radialSecondaryAccent);
 }
 
+/* Hide Radio Inputs */
 #task_form input[type="radio"] {
   display: none;
 }
 
+/* Style Radio Labels */
 #task_form input[type="radio"] + label {
   display: inline-block;
   cursor: pointer;
@@ -198,39 +261,54 @@ button {
 
 #task_form input[type="radio"]:checked + label {
   background: var(--linearSecondaryAccent);
-  color:var(--background);
+  color: var(--background);
   border: none;
 }
 
+/* Priority Date Section */
 #prio_date {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-#title_desc{
+
+#prio_date label{
+font-weight: 600;
+color: var(--accent);
+}
+
+#prio_date legend{
+  font-weight: 600;
+  color: var(--accent);
+  }
+
+/* Title Description Section */
+#title_desc {
   display: flex;
   flex-direction: column;
-  gap:5px;
+  gap: 5px;
 }
+
+/* Priority Section */
 #priority {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap:5px;
+  gap: 5px;
 }
 
-#due_date_div{
+/* Due Date Section */
+#due_date_div {
   display: flex;
   justify-content: flex-start;
 }
 
-/* header */
+/* Header */
 #header {
   background-color: var(--secondary);
   display: flex;
   align-items: center;
   color: var(--background);
-  /* box-shadow: inset 0px -4px 10px 0px rgba(0, 0, 0, 0.6);*/
 }
 
 #project_header {
@@ -241,27 +319,29 @@ button {
   align-items: center;
 }
 
-/* left side */
-
+/* Left Sidebar */
 #left p {
-  font-size: 2.4em; /* Adjust font size */
-  font-weight: bold; /* Add bold font weight */
+  font-size: 2.4em;
+  font-weight: bold;
   color: var(--accent);
 }
-#logo{
+
+#logo {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap:5px
+  gap: 5px;
 }
 
-#logo svg{
-  width:50px;
-  height:50px;
+#logo svg {
+  width: 50px;
+  height: 50px;
   fill: var(--accent);
 }
+
+/* Project Form */
 #project_form {
-  margin-bottom: 20px; /* Add margin for spacing */
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -270,110 +350,128 @@ button {
 
 #project_title {
   padding: 10px;
-  width: 200px; /* Adjust the width as needed */
+  width: 200px;
   border: 1px solid var(--secondary);
   border-radius: 5px;
   font-size: 16px;
-  /* margin-bottom: 10px; */
-  box-sizing: border-box; /* Ensure padding and border are included in width */
+  box-sizing: border-box;
 }
 
 #project_title:focus {
- border:1px solid var(--accent)
+  border: 1px solid var(--accent);
 }
 
 #projects {
-  overflow-y: auto; /* Add scrollbar if content overflows vertically */
-  max-height: 70vh; /* Limit the maximum height of the project list */
+  overflow-y: auto;
+  height:80vh;
 }
 
 #project_list {
-  padding: 10px; /* Add padding for spacing */
-  border-radius: 4px; /* Add border radius for rounded corners */
+  padding: 10px;
+  border-radius: 4px;
   display: flex;
   flex-direction: column;
 }
 
-#project_list p{
-  color:var(--background);
+#project_list p {
+  color: var(--background);
 }
 
 .project-card {
-  background-color: var(--primary); /* Background color for project cards */
-  padding: 10px 20px; /* Padding for project cards */
-  border: none; /* Remove default button border */
-  border-radius: 10px; /* Add border radius for rounded corners */
-  cursor: pointer; /* Change cursor to pointer on hover */
-  margin-bottom: 10px; /* Add margin between project cards */
+  background-color: var(--primary);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 20vw;
   transition: background-color 0.2s ease-out;
 }
 
 .project-card:hover {
-  background-color: var(--secondary); 
-  transition: background-color 0.3s ease-in;/* Change background color on hover */
+  background-color: var(--secondary);
 }
+
+/* Checked State */
 .checked {
-  background-color: var(--accent); 
+  background-color: var(--accent);
+  background: var(--accent);
   color: whitesmoke;
   border-left: 10px solid var(--secondary);
-  /* Change to whatever color you prefer */
 }
 
-.checked svg{
+.checked svg {
   fill: var(--background);
 }
-.desc_para{
-  max-width: 70px;
-  max-height: 90px;
-  overflow: scroll;
-}
-#checkbox{
-  width:30px;
-  height: 30px;
-  border: 10px solid white ;
-  background-color: #eee;
-}
-/* #desc_para{} */
 
+.task_card.checked {
+  background-color: var(--accent); 
+  border-left: 10px solid var(--secondary); 
+}
+
+.task_card.checked p{
+  color: var(--background); 
+}
+
+.task_card.checked div{
+  color: var(--background); 
+}
+.desc_para {
+  /* overflow-x: auto;  */
+  min-height: fit-content;
+  overflow-y: visible;
+  max-width: 30vw;
+  min-width: 30vw;
+}
+
+#checkbox {
+  width: 30px;
+  height: 30px;
+  border: 10px solid white;
+  background-color: #eee;
+  grid-column: 1/2;
+}
+
+/* Remove Button */
 .remove-button {
-  background-color: var(--background); /* Background color for remove button */
-  border: none; /* Remove default button border */
+  background-color: var(--background);
+  border: none;
   padding: 5px;
-  font-weight: 600; /* Padding for remove button */
-  border-radius: 100%; /* Add border radius for rounded corners */
-  cursor: pointer; /* Change cursor to pointer on hover */
+  font-weight: 600;
+  border-radius: 100%;
+  cursor: pointer;
   display: flex;
-  width:40px;
-  height:40px;
+  width: 40px;
+  height: 40px;
   aspect-ratio: 1/1;
   justify-content: center;
   align-items: center;
 }
 
-.remove-button svg{
-  width:22px;
-  height:22px;
+.remove-button svg {
+  width: 22px;
+  height: 22px;
   fill: var(--primary);
   transition: fill 0.1s ease;
 }
 
 .remove-button:hover {
-  background-color: var(--accent); /* Change background color on hover */
+  background-color: var(--accent);
 }
 
 .remove-button:hover svg {
-  fill: white; /* Change background color on hover */
-  transition: fill 0.1s ease;
+  fill: white;
 }
 
+/* Add Project Button */
 #add_project_btn svg {
   width: 20px;
   height: 20px;
   fill: white;
   transition: fill 0.1s ease;
 }
+
 #add_project_btn {
   background-color: var(--accent);
   color: white;
@@ -384,33 +482,35 @@ button {
   justify-content: center;
   border-radius: 50%;
   cursor: pointer;
-  /* float: right; */
 }
+
 #add_project_btn:hover {
   background: var(--linearSecondaryAccent);
 }
 
+/* Project Card Section */
 #project_card_div {
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 1em;
-  gap:40px
+  gap: 40px;
 }
+
 #project_card_div p {
   font-size: 1.2em;
   font-weight: 400;
 }
 
-#head_icon{
+#head_icon {
   display: flex;
-  gap:10px;
+  gap: 10px;
   justify-content: flex-start;
   align-items: center;
 }
 
-#head_icon svg{
-  width:40px;
+#head_icon svg {
+  width: 40px;
   fill: var(--background);
-  height:auto;
+  height: auto;
 }
